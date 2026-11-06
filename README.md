@@ -26,5 +26,5 @@ vim.lsp.enable("hylian")
 ## Maintain it
 
 - Cut a release of the language server: push tag `lsp-vX.Y.Z` in LinkNavi/Hylian (its workflow attaches `hylian-lsp-linux-x64.tar.gz`).
-- Bump `source.id` in `packages/hylian-lsp/package.yaml` to that tag, push to `main`; the workflow publishes a new `registry.json.zip` release.
+- Bump `source.id` in `packages/hylian-lsp/package.yaml` to that tag, push to `master`; the workflow publishes a new `registry.json.zip` release.
 - Test locally: `python3 scripts/build.py`, then `registries = { "file:/path/to/hylian-registry" }`.

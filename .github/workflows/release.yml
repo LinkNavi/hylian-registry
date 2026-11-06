@@ -1,7 +1,7 @@
 name: Release registry
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths: [packages/**, scripts/**]
   workflow_dispatch:
 permissions:
