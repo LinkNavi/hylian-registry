@@ -1,0 +1,21 @@
+---
+name: hylian-lsp
+description: Language server for the Hylian programming language.
+homepage: https://github.com/LinkNavi/Hylian
+licenses:
+  - MIT # shortcut: Hylian repo has no LICENSE file yet, add one and fix this
+languages:
+  - Hylian
+categories:
+  - LSP
+
+source:
+  # Bump the tag when you cut a new `lsp-vX.Y.Z` release in LinkNavi/Hylian.
+  id: pkg:github/LinkNavi/Hylian@lsp-v0.1.0
+  asset:
+    - target: linux_x64_gnu
+      file: hylian-lsp-linux-x64.tar.gz
+      bin: hylian-lsp
+
+bin:
+  hylian-lsp: "{{source.asset.bin}}"

@@ -1,0 +1,20 @@
+name: Release registry
+on:
+  push:
+    branches: [main]
+    paths: [packages/**, scripts/**]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install pyyaml && python3 scripts/build.py
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$(date -u +%Y-%m-%d-%H%M%S)"
+          gh release create "$tag" dist/registry.json.zip dist/checksums.txt --title "$tag" --notes "Registry build"
